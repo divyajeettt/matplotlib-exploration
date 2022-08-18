@@ -11,7 +11,7 @@ def plot_sinwave(n: int) -> None:
     plt.grid(True)
 
     plt.plot([0, angle+5], zeroes, color="black", linewidth=2.5)
-    plt.plot(zeroes, [-1, 1], color="black", linewidth=2.5)
+    plt.plot(zeroes, values, color="black", linewidth=2.5)
 
     x_axis.append(angle)
 
@@ -27,8 +27,9 @@ def plot_sinwave(n: int) -> None:
 
 ################################################################################
 
-angle: float = 0
+angle: float = 0.0
 zeroes: list[int, int] = [0, 0]
+values: list[int, int] = [-1, 1]
 
 x_axis: list[float] = []
 sinwave: list[float] = []
