@@ -11,6 +11,6 @@ This repository contains simple projects/scripts that explore the simplest featu
 
 ## Future Plans
 
-Although some of my other projects do use these features, it would ne nice to add the following to this repository:
+Although some of my other projects do use these features, it would be nice to add the following to this repository:
 - Add [subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html)
 - Add 3-dimensional paramtrized plotting
