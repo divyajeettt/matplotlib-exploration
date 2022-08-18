@@ -137,7 +137,7 @@ plt.figure(figsize=(10, 5))
 plt.axhline(y=0, color="black", linewidth=3)
 plt.axvline(x=0, color="black", linewidth=3)
 
-limited = {
+limited: set[str] = {
     "tan(x)", "tan(2x)", "2tan(x)", "½tan(x)", "tan²(x)", "tan³(x)", "cot(x)",
     "csc(x)", "sec(x)", "|tan(x)|", "xtan(x)", "x⁻¹tan(x)"
 }
