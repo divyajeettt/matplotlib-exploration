@@ -4,14 +4,14 @@ from matplotlib.animation import FuncAnimation
 
 ################################################################################
 
-def plot_sinwave(n):
+def plot_sinwave(n: int):
     global angle
 
     plt.cla()
     plt.grid(True)
 
-    plt.plot([0, angle+10], zeroes, color="black", linewidth=3)
-    plt.plot(zeroes, [-1, 1], color="black", linewidth=3)
+    plt.plot([0, angle+5], zeroes, color="black", linewidth=2.5)
+    plt.plot(zeroes, [-1, 1], color="black", linewidth=2.5)
 
     x_axis.append(angle)
 
@@ -19,9 +19,9 @@ def plot_sinwave(n):
     plt.plot(x_axis, sinwave, color="red", linewidth=1.5)
     plt.plot([x_axis[-1]], [sinwave[-1]], color="black", marker="o")
 
-    # coswave.append(math.cos(angle))
-    # plt.plot(x_axis, coswave, color="blue", linewidth=1.5)
-    # plt.plot([x_axis[-1]], [coswave[-1]], color="black", marker="o")
+    coswave.append(math.cos(angle))
+    plt.plot(x_axis, coswave, color="blue", linewidth=1.5)
+    plt.plot([x_axis[-1]], [coswave[-1]], color="black", marker="o")
 
     angle += 0.05
 
