@@ -1,72 +1,36 @@
+import math
 import matplotlib.pyplot as plt
-import matplotlib.patches as mp
-import numpy as np
+from matplotlib.animation import FuncAnimation
 
 ################################################################################
 
-# generate a large list of inputs
-X: np.ndarray = np.arange(-200, 200.5, 0.5)
-Y: np.ndarray = X
+def plot_sinwave(n: int):
+    global angle
 
-X_AXIS: np.ndarray
-Y_AXIS: np.ndarray
-X_AXIS, Y_AXIS = np.meshgrid(X, Y)
+    plt.cla()
+    plt.grid(True)
+
+    plt.plot([0, angle+5], zeroes, color="black", linewidth=2.5)
+    plt.plot(zeroes, [-1, 1], color="black", linewidth=2.5)
+
+    x_axis.append(angle)
+
+    sinwave.append(math.sin(angle))
+    plt.plot(x_axis, sinwave, color="red", linewidth=1.5)
+    plt.plot([x_axis[-1]], [sinwave[-1]], color="black", marker="o")
+
+    coswave.append(math.cos(angle))
+    plt.plot(x_axis, coswave, color="blue", linewidth=1.5)
+    plt.plot([x_axis[-1]], [coswave[-1]], color="black", marker="o")
+
+    angle += 0.05
 
 ################################################################################
 
-GRAPHS_TO_PLOT: dict[str, np.ndarray] = {
-    # "x + y": X_AXIS + Y_AXIS,
-    # "x - y": X_AXIS - Y_AXIS,
-    # "xy": X_AXIS * Y_AXIS,
-    # "x / y": X_AXIS / Y_AXIS,
+angle, zeroes = 0, [0, 0]
+x_axis, sinwave, coswave = [], [], []
 
-    ############################################################################
+animate_components = FuncAnimation(plt.gcf(), plot_sinwave, interval=50)
 
-    # "|x| + |y|": np.fabs(X_AXIS) + np.fabs(Y_AXIS),
-    # "|x| - |y|": np.fabs(X_AXIS) - np.fabs(Y_AXIS),
-    # "|x||y|": np.fabs(X_AXIS) * np.fabs(Y_AXIS),
-    # "|x| / |y|": np.fabs(X_AXIS) / np.fabs(Y_AXIS),
-
-    ############################################################################
-
-    # "x² + y²": X_AXIS**2 + Y_AXIS**2,
-    # "x² - y²": X_AXIS**2 - Y_AXIS**2,
-    # "√(x² + y²)": np.sqrt(X_AXIS**2 + Y_AXIS**2),
-    # "√(x² - y²)": np.sqrt(X_AXIS**2 - Y_AXIS**2),
-
-    ############################################################################
-
-    # "x³ + y³": X_AXIS**3 + Y_AXIS**3,
-    # "x³ - y³": X_AXIS**3 - Y_AXIS**3,
-    # "∛(x³ + y³)": np.cbrt(X_AXIS**3 + Y_AXIS**3),
-    # "∛(x³ - y³)": np.cbrt(X_AXIS**3 - Y_AXIS**3),
-
-    ############################################################################
-
-    # "log(x) + log(y)": np.log(X_AXIS) + np.log(Y_AXIS),
-    # "log(x) - log(y)": np.log(X_AXIS) - np.log(Y_AXIS),
-
-    ############################################################################
-
-    # "1 - |x+y| - |y-x|": 1 - np.fabs(X_AXIS+Y_AXIS) - np.fabs(Y_AXIS-X_AXIS),
-    # "1 - |y|": 1 - np.fabs(Y_AXIS),
-    # "1 - |x|": 1 - np.fabs(X_AXIS),
-}
-
-ax: plt.axes = plt.axes(projection="3d")
-
-patches: list[mp.Patch] = []
-colors: list[str] = len(GRAPHS_TO_PLOT) * [
-    "red", "orange", "green", "blue", "purple", "cyan", "magenta", "yellow"
-]
-
-for func, z_axis in GRAPHS_TO_PLOT.items():
-    ax.plot_surface(X_AXIS, Y_AXIS, z_axis, color=colors[0])
-    patches.append(mp.Patch(color=colors[0], label=f"z = {func}"))
-    colors.pop(0)
-
-if not GRAPHS_TO_PLOT:
-    print("No graphs to plot")
-else:
-    ax.legend(handles=patches)
-    plt.show()
+plt.grid(True)
+plt.show()
