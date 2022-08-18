@@ -4,7 +4,7 @@ from matplotlib.animation import FuncAnimation
 
 ################################################################################
 
-def plot_sinwave(n: int):
+def plot_sinwave(n: int) -> None:
     global angle
 
     plt.cla()
@@ -27,10 +27,20 @@ def plot_sinwave(n: int):
 
 ################################################################################
 
-angle, zeroes = 0, [0, 0]
-x_axis, sinwave, coswave = [], [], []
+angle: float = 0
+zeroes: list[int, int] = [0, 0]
 
-animate_components = FuncAnimation(plt.gcf(), plot_sinwave, interval=50)
+x_axis: list[float] = []
+sinwave: list[float] = []
+coswave: list[float] = []
 
-plt.grid(True)
-plt.show()
+print("Enter the interval for refreshing the plot (in ms)")
+print("Ideally, keep the interval should be between 10-50")
+interval: float = float(input(">>> "))
+
+if interval < 0:
+    print("Invalid interval (negative)")
+else:
+    animate_components = FuncAnimation(plt.gcf(), plot_sinwave, interval=interval)
+    plt.grid(True)
+    plt.show()
