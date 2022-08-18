@@ -36,7 +36,7 @@ sinwave: list[float] = []
 coswave: list[float] = []
 
 print("Enter the interval for refreshing the plot (in ms)")
-print("Ideally, keep the interval should be between 10-50")
+print("Ideally, the interval should be between 10-50")
 interval: float = float(input(">>> "))
 
 if interval < 0:
