@@ -88,7 +88,7 @@ python3 live_plotter.py
 
 #### Sine-wave plotter
 
-[`sinewave_plotter.py`](https://github.com/divyajeettt/matplotlib-exploration/blob/main/sinwave_plotter.py) simply plots a sine-wave and a cosine-wave, refreshed n the screen after each interval (interval is selected by the user). \
+[`sinewave_plotter.py`](https://github.com/divyajeettt/matplotlib-exploration/blob/main/sinwave_plotter.py) simply plots a sine-wave and a cosine-wave, refreshed on the screen after each interval (interval is selected by the user). \
 *Date of creation:* `December 07, 2020`
 
 Execute:
@@ -98,7 +98,7 @@ python3 sinewave_plotter.py
 
 #### Circle plotter
 
-[`circle_plotter.py`](https://github.com/divyajeettt/matplotlib-exploration/blob/main/circle_plotter.py) simply plots a circle, along with the component of the current point on the circle on the axes, refreshed n the screen after each interval (interval is selected by the user). \
+[`circle_plotter.py`](https://github.com/divyajeettt/matplotlib-exploration/blob/main/circle_plotter.py) simply plots a circle, along with the component of the current point on the circle on the axes, refreshed on the screen after each interval (interval is selected by the user). \
 *Date of creation:* `December 08, 2020`
 
 Execute:
